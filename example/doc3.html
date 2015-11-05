@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset=utf-8 />
+  <title>メモ帳</title>
+ </head>
+ <body>
+  <article data-x={mmmm} id=abcd foo>
+<h1>第 <span contenteditable      =    true     >23</span> 回 定例会議のお知らせ</h1>
+<p>
+ 下記の通り、定例会議の開催についてお知らせします。
+</p>
+<dl>
+ <dt>日時</dt>
+ <dd contenteditable="true"id='zxs'>2013年6月14日 14時～15時</dd>
+ <dt>会場</dt>
+ <dd contenteditable=true>本社会議室 &gt; 前列</dd>
+</dl>
+
+
+<menu type="context" id="shortcut">
+ <command label="商品情報へのショートカット" onclick="location.href='http://example.com/product/index.php#k=1&amp;l=2'" />
+ <command label="会社概要へのショートカット" onclick="location.href='http://example.com/company/'" />
+ <command label="お問い合わせへのショートカット" onclick="location.href='http://example.com/contact/'" />
+</menu>
+<p>
+ これら商品は                   
+ <a href="http://example.com/" contextmenu="shortcut">日本商事株式会社</a> が取り扱っています。
+</p>
+
+
+
+</article>
+ </body>
+</html>

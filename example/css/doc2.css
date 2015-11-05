@@ -1,0 +1,115 @@
+@charset "UTF-8";
+body {
+	width:900px;
+	margin:20px auto;
+	background:#EBFCFC;
+	color:#666;
+}
+header, nav, article, aside, section, footer, address {
+	display:block;
+}
+header, nav, article, aside, section, footer {
+	border:1px solid #ccc;
+	margin:0px 0px 1em;
+	padding:20px;
+	background:#fff;
+}
+header {
+	text-align:center;
+	background:#000;
+	color:#FFF;
+}
+header p {
+	font-weight:bold;
+}
+p {
+	margin:1em 0 0;
+}
+nav {
+	text-align:center;
+	padding:5px;
+	}
+nav ul, nav li {
+	list-style-type:none;
+	display:inline;
+	padding:0px 10px;
+}
+nav h1 {
+	display:none;
+}
+article {
+	float:left;
+	width:620px;
+}
+article section h1 {
+	font-size:30px;
+}
+article section h2 {
+	font-size:20px;
+	margin:3em 0 1em;
+}
+aside {
+	float:right;
+	width:180px;
+}
+footer {
+	clear:both;
+	text-align: center;
+	padding: 5px;
+	font-size: 80%;
+}
+pre {
+	color: #000;
+	background: #F2F5FF;
+	padding: 1em;
+	border-style: none;
+	margin: 1em 0em;
+	overflow: auto;
+	width: auto;
+}
+.blue {
+	color:#06F;
+}
+.gray {
+	color:#aaa;
+}
+
+/* link */
+a {
+	color: #F90;
+	text-decoration: underline;
+}
+a:hover {
+	color: #F00;
+}
+/* tableのCSS */
+table {
+	width: 100%;
+	margin:20px 0px 20px;
+	border-top: 1px solid #CCC;
+	border-left: 1px solid #CCC;
+	border-spacing:0px;
+}
+table tr th, table tr td {
+	text-align: center;
+	font-size: 12px;
+	border-bottom: 1px solid #CCC;
+	border-right: 1px solid #CCC;
+	padding: 3px;
+}
+table thead tr {
+	background: #C7EBC9;
+}
+table tfoot tr {
+	background: #86BD7E;
+	color:#FFF;
+}
+
+/*colgroupの指定より、thead, tfoot, tbodyの指定が優先されるため、
+colgroupの指定を施したいthead, tfoot, tbody部分のCSS指定は解除しておく
+このサンプルの場合は、tbody trの指定をしていないため、そこにcolgroup指定が効いている*/table col#shop {
+	background: #FC6;
+}
+table col#count {
+	background: #FFC;
+}

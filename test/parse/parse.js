@@ -1,30 +1,53 @@
-var util = require('util');
+/*jshint indent:false*/
+// var util = require('util');
 
-var M = require('../../lib/message');
-var split = require('../../lib/split');
-var parse = require('../../lib/parse');
 var eq = require('assert').deepEqual;
-var er, sp, ps;
+var parse = require('../../lib/parse');
+var nodes;
 
 
-var html;
+// null
+nodes = [];
+eq(parse(nodes), {});
 
-html = '<ul>  <li>foo   <li>bar</ul>';
+// foo
+nodes = [
+  {nodeType: 3, data: 'foo'}
+];
+eq(parse(nodes),
+  {nodeType: 1, tagName : 'fragment', children: [
+    {nodeType: 3, data: 'foo'}
+  ]}
+);
 
-er = [];
-sp = split(html, er);
-ps = parse(sp, er);
+// <a>foo</a>
+nodes = [
+  {nodeType: 1, tagName: 'a', start: true},
+  {nodeType: 3, data: 'foo'},
+  {nodeType: 1, tagName: 'a', end: true},
+];
+eq(parse(nodes),
+  {nodeType: 1, tagName: 'fragment', children: [
+    {nodeType: 1, tagName: 'a', children: [
+      {nodeType: 3, data: 'foo'}
+      ]
+    }
+  ]}
+);
 
-console.log(sp);
-
-console.log('\n\n\n');
-
-console.log(util.inspect(ps, {depth: null}));
-
-console.log('\n\n\n');
-
-console.log(er);
-
-
+// <a>foo</a>
+nodes = [
+  {nodeType: 1, tagName: 'a', start: true},
+  {nodeType: 3, data: 'foo'},
+  {nodeType: 1, tagName: 'a', end: true},
+];
+eq(parse(nodes),
+  {nodeType: 1, tagName: 'fragment', children: [
+    {nodeType: 1, tagName: 'a', children: [
+      {nodeType: 3, data: 'foo'}
+      ]
+    }
+  ]}
+);
 
 

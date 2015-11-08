@@ -5,12 +5,12 @@ cocotte-htmlparser
 
 このモジュールはHTML5パーサーです
 
-既存のページを分析し、スクレイピングするためのものではありません  
-次のような目的で使用します
+大量のHTMLページをスクレイピングするためのものではありません  
+次のような目的で使用します  
+そのため、速度よりその後の再利用に重点を置いています
 
   + コーディング時のHTMLファイルの整合性を確認する
   + テンプレートエンジンのコンパイルを行う対象にする
-
 
 # 使用例
 
@@ -18,7 +18,6 @@ cocotte-htmlparser
 var htmlParser = require('cocotte-htmlparser');
 var input  = '<ul><li>foo<li>bar</ul>';
 var parsed = htmlParser(input);
-var nodes  = parsed.nodes;
 var root   = parsed.root;
 var errors = parsed.errors;
 var bone   = parsed.bone();
@@ -26,19 +25,16 @@ var bone   = parsed.bone();
 
 プロパティ・メソッド
 
-  + nodes  : HTMLをタグ・テキスト・コメントに分解した配列
   + root   : HTMLを解析したオブジェクト
   + errors : 違反情報
   + bone() : アウトラインの取得
 
 # 対象
 
-html5以外のフォーマットには対応しません
+html5以外のフォーマットには対応しません  
 完全なドキュメントでなくとも一部のドキュメントでも構いません  
-
-違反項目を列挙するために、多くの計算をおこないます  
-巨大で複雑なHTML構造を分析すると大量のメモリが必要となるため、そのような場合は対象と
-しないほうが賢明です
+最初の文字が`<!DOCTYPE html>`のように、DOCTYPE宣言の場合は完全なドキュメントとして
+それ以外を一部のドキュメントして扱います
 
 # 違反
 
@@ -58,7 +54,7 @@ M.NOT_CLOSED_DATANODE       = '$1は閉じられていません';
 M.NOT_EMPTY_WITH_SLASH      = '/>は空要素にのみ使用できます';
 M.ILLEGAL_ATTRIBUTE         = '不明な属性$1が存在します';
 M.ESCAPE_ATTRIBUTE          = '$1はエスケープが必要です';
-M.DISABLED_ATTRIBUTE        = '属性$1は許可されていません';
+M.DISABLED_ATTRIBUTE        = '$1に属性$2は許可されていません';
 M.ENDNODE_WITH_ATTRIBUTE    = '/$1に属性が設定されています';
 M.DOCTYPE_BEFORE_WHITESPACE = 'DOCTYPEの前に空白文字が存在します';
 

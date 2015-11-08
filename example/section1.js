@@ -12,18 +12,12 @@ function parse(file) {
   return htmlParser(html);
 }
 
-var file = 'doc2.html';
-// var file = 'doc4.html';
-
+var file = 'doc1.html';
 
 var r = parse(file);
 
-// l(r.nodes);
-
-// l(r.root);
-
+l(r.root);
 l(r.errors);
-l(r.bone());
-
+// l(r.bone());
 
 

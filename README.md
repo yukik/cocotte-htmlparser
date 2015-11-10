@@ -45,6 +45,8 @@ message.jsより抜粋
 
 ```
 var M = {};
+
+// split.js
 M.ILLEGAL_TAG_FORMAT        = 'タグのフォーマットが不正です';
 M.CLOSED_EMPTY              = '空要素の終了タグが記述されています';
 M.BEGIN_IN_COMMENT          = 'コメントを開始している中にさらにコメントの開始が存在します';

@@ -135,7 +135,7 @@ eq(e.errors, [
     line: 1,
     column: 1,
     level: 'notice',
-    message: sprint(M.DISABLED_ATTRIBUTE, 'unknown')
+    message: sprint(M.DISABLED_ATTRIBUTE, 'link', 'unknown')
   }
 ]);
 
